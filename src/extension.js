@@ -23,6 +23,13 @@ function activate(context) {
 		if(pos > 0){
 			var ModulePath = FilePath.substring(0,pos+2)
 			vscode.window.showInformationMessage('module目录为：'+ModulePath);
+
+			//编译Module
+			//Step1，TCK INIT
+			
+
+
+
 		}
 		else{
 			vscode.window.showInformationMessage('请检查当前文件是否在module下');
