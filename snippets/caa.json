@@ -1,0 +1,12 @@
+{
+    "for循环": {
+        "prefix": "for",
+        "body": [
+          "for (int Index = 1 ; Index <= $1 ;Index++)",
+          "{",
+          "     $2",
+          "}"
+        ],
+        "description": "for循环"
+    }
+}

@@ -12,19 +12,32 @@ function activate(context) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "caaextension" is now active!');
+	console.log('CAA二次开发插件');
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', function () {
+	let buildModule = vscode.commands.registerCommand('extension.buildModule', (uri) => {
+		var FilePath = uri.path;
+		var pos = FilePath.indexOf('.m')
+		if(pos > 0){
+			var ModulePath = FilePath.substring(0,pos+2)
+			vscode.window.showInformationMessage('module目录为：'+ModulePath);
+		}
+		else{
+			vscode.window.showInformationMessage('请检查当前文件是否在module下');
+		}
+	});
+
+	let buildFramework = vscode.commands.registerCommand('extension.buildFramework', function () {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+		vscode.window.showInformationMessage('编译Framework');
 	});
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(buildModule);
+	context.subscriptions.push(buildFramework);
 }
 exports.activate = activate;
 

@@ -3,21 +3,55 @@
 	"displayName": "CAAExtension",
 	"description": "CAA开发插件",
 	"version": "0.0.1",
+	"keywords": ["vscode","caa","catia"],
+	"publisher": "qiangwushuang",
 	"engines": {
 		"vscode": "^1.42.0"
 	},
 	"categories": [
-		"Other"
+		"Programming Languages"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"*"
 	],
-	"main": ".src/extension.js",
+	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.buildModule",
+				"title": "buildModule"
+			},
+			{
+				"command":"extension.buildFramework",
+				"title": "buildFramework"
+		}],
+		"keybindings":[{
+			"command":"extension.buildModule",
+			"key":"alt+2",
+			"when":"editorTextFocus"	
+		},
+		{
+			"command":"extension.buildFramework",
+			"key":"alt+f2",
+			"when":"editorTextFocus"	
+		}],
+		"menus":{
+			"editor/context":[
+				{
+					"when":"editorFocus",
+					"command":"extension.buildModule",
+					"group":"navigation"
+				},
+				{
+					"when":"editorFocus",
+					"command":"extension.buildFramework",
+					"group":"navigation"
+				}]
+		},
+		"snippets": [
+			{
+				"language": "cpp",
+				"path": "./snippets/caa.json"
 			}
 		]
 	},
@@ -37,4 +71,6 @@
 		"typescript": "^3.7.5",
 		"vscode-test": "^1.3.0"
 	}
+	
+
 }
