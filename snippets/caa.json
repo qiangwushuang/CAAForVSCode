@@ -8,5 +8,15 @@
           "}"
         ],
         "description": "for循环"
-    }
+    },
+    "for循环逆向": {
+      "prefix": "forr",
+      "body": [
+        "for (int Index = $1 ; Index <= 1 ;Index--)",
+        "{",
+        "     $2",
+        "}"
+      ],
+      "description": "for循环"
+  }
 }
